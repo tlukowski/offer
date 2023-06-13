@@ -1,7 +1,7 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Formularz wyceny',
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} mx-auto max-w-3xl bg-slate-800 p-4 text-slate-100`}
+        className={`${montserrat.className} mx-auto max-w-3xl bg-blueDarker p-4 text-slate-100`}
       >
         {children}
       </body>
