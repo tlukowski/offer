@@ -1,16 +1,6 @@
 'use client';
-import FormInput from '@/components/form/formInput';
+import Form from '@/components/form/form';
 import Header from '@/components/layout/Header';
-
-const data = [
-  {
-    id: '1',
-    question:
-      'Jaki adres www będzie miała Twoja strona? Czy posiadasz już domenę?',
-    modal: { title: 'xd', desc: 'xd2' },
-  },
-  { title: 'xd2', desc: 'xd3' },
-];
 
 export default function Home() {
   return (
@@ -33,11 +23,7 @@ export default function Home() {
             <div className="text-xl text-secondary">Podstawowe informacje</div>
           </div>
           <div className="form-wrapper border-blue border-l-2 px-4 py-9">
-            <FormInput
-              question="Jaki adres www będzie miała Twoja strona? Czy posiadasz już domenę?"
-              modal={{ title: 'xd', desc: 'xd' }}
-            />
-            <FormInput question="xd2" />
+            <Form></Form>
           </div>
         </div>
       </main>
