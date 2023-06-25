@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import FormInput from './formInput';
-
+import Button from '../button/button';
 const data = [
   {
     question:
       'Jaki adres www będzie miała Twoja strona? Czy posiadasz już domenę?',
-    modal: { title: 'xd', desc: 'xd2' },
+    modal: {
+      title: 'Czy posiadasz swój hosting www? (serwer)',
+      desc: 'Hosting to inaczej miejsce w sieci, gdzie osadzona jest Twoja strona www, stale monitorowana, podłączona do internetu i domeny.',
+    },
   },
   {
     question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt??',
@@ -46,6 +49,7 @@ const Form: React.FC = () => {
           onValidation={(isValid) => handleInputValidation(index, isValid)}
         />
       ))}
+      {activeIndex + 1 === data.length && <Button>Dalej</Button>}
     </div>
   );
 };
