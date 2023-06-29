@@ -21,15 +21,14 @@ const FormInput: React.FC<FormInputProps> = ({
   function isValid(value: string) {
     const isValid = value.length >= 3;
     setIsValid(isValid);
-
     if (onValidation) {
       onValidation(isValid);
     }
   }
   return (
     <>
-      <div className={`group mb-4 ${inputIsValid === true ? '' : 'invalid'}`}>
-        <div className="mb-4 flex">
+      <div className={`group mb-4 ${inputIsValid ? '' : 'invalid'}`}>
+        <div className="mb-4 flex justify-between">
           <p className="text-lg/6">{question}</p>
           {modal && (
             <>

@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
-const Button = ({ children }: { children: React.ReactNode }) => {
+interface ModalButtonProps {
+  onClick: Dispatch<SetStateAction<boolean>>;
+  children: React.ReactNode;
+}
+
+const Button: React.FC<ModalButtonProps> = ({ onClick, children }) => {
+  const [isValid, setValidForm] = useState(false);
+
   return (
     <div className="flex justify-end">
-      <button className="bg-black px-8 py-4 text-white transition-colors hover:bg-white hover:text-black">
+      <button
+        onClick={() => onClick((isValid) => !isValid)}
+        className={`bg-black px-8 py-4 text-white transition-colors hover:bg-white hover:text-black ${
+          isValid ? '' : 'invalid'
+        }`}
+      >
         {children}
       </button>
     </div>

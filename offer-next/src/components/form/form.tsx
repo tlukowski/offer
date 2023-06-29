@@ -1,33 +1,26 @@
 import React, { useState } from 'react';
 import FormInput from './formInput';
 import Button from '../button/button';
-const data = [
-  {
-    question:
-      'Jaki adres www będzie miała Twoja strona? Czy posiadasz już domenę?',
-    modal: {
-      title: 'Czy posiadasz swój hosting www? (serwer)',
-      desc: 'Hosting to inaczej miejsce w sieci, gdzie osadzona jest Twoja strona www, stale monitorowana, podłączona do internetu i domeny.',
-    },
-  },
-  {
-    question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt??',
-  },
-  {
-    question:
-      'Czemu ma służyć Twoja strona? (przedstawienie oferty, portfolio, blog, wizytówka firmy, zdobycie kontaktu etc.)',
-    modal: { title: 'xd', desc: 'xd2' },
-  },
-  {
-    question:
-      'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
-  },
-];
 
-const Form: React.FC = () => {
+type DataItem = {
+  question: string;
+  modal?: {
+    title: string;
+    desc: string;
+  };
+};
+
+const Form: React.FC<{
+  data: DataItem[];
+  index: number;
+  formIndex: number;
+  formsLength: number;
+  onValidation: (isValid: boolean) => void;
+}> = ({ data, index, onValidation, formIndex, formsLength }) => {
+  // const [isFormValid, setFormValid] = useState(0);
+  console.log(data);
   const [activeIndex, setActiveIndex] = useState(0);
   const [inputs, setInputs] = useState(data.map(() => ({ isValid: false })));
-
   const handleInputValidation = (index: number, isValid: boolean) => {
     setInputs((prevInputs) => {
       const newInputs = [...prevInputs];
@@ -38,9 +31,10 @@ const Form: React.FC = () => {
       return newInputs;
     });
   };
-
+  {
+  }
   return (
-    <div>
+    <div className={`${formIndex === index ? '' : 'hidden'} py-4 text-xl`}>
       {data.slice(0, activeIndex + 1).map((input, index) => (
         <FormInput
           key={index}
@@ -49,7 +43,14 @@ const Form: React.FC = () => {
           onValidation={(isValid) => handleInputValidation(index, isValid)}
         />
       ))}
-      {activeIndex + 1 === data.length && <Button>Dalej</Button>}
+      {formsLength !== formIndex + 1 && activeIndex + 1 === data.length ? (
+        <Button onClick={() => onValidation(true)}>Dalej</Button>
+      ) : (
+        formsLength === formIndex + 1 &&
+        activeIndex + 1 === data.length && (
+          <Button onClick={() => onValidation(true)}>Zatwierdź</Button>
+        )
+      )}
     </div>
   );
 };
