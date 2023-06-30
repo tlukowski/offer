@@ -8,6 +8,7 @@ type DataItem = {
     title: string;
     desc: string;
   };
+  formType: string;
 };
 
 const Form: React.FC<{
@@ -17,7 +18,6 @@ const Form: React.FC<{
   formsLength: number;
   onValidation: (isValid: boolean) => void;
 }> = ({ data, index, onValidation, formIndex, formsLength }) => {
-  // const [isFormValid, setFormValid] = useState(0);
   console.log(data);
   const [activeIndex, setActiveIndex] = useState(0);
   const [inputs, setInputs] = useState(data.map(() => ({ isValid: false })));
@@ -40,6 +40,7 @@ const Form: React.FC<{
           key={index}
           question={input.question}
           modal={input.modal}
+          formType={input.formType}
           onValidation={(isValid) => handleInputValidation(index, isValid)}
         />
       ))}

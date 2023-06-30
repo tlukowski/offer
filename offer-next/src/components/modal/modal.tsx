@@ -8,6 +8,7 @@ interface ModalProps {
 
 export default function Modal({ title, desc, show, onClick }: ModalProps) {
   return (
+    // Get information about modal, disable modal by click close modal, overlay.
     <>
       {show && (
         <div className="modal">

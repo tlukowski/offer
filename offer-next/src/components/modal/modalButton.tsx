@@ -6,6 +6,7 @@ interface ModalButtonProps {
 
 const ModalButton: React.FC<ModalButtonProps> = ({ onClick }) => {
   return (
+    // Button for modal state changes - show modal/hide
     <button
       className="modal_button"
       onClick={() => onClick((prevState) => !prevState)}

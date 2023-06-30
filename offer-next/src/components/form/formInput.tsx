@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Modal from '../modal/modal';
 import ModalButton from '../modal/modalButton';
+import FormInputElement from './formInputElement';
+
 interface FormInputProps {
   question: string;
   modal?: {
     title: string;
     desc: string;
   };
-  show?: boolean;
+  formType: string;
   onValidation: (isValid: boolean) => void;
 }
 
@@ -15,9 +17,14 @@ const FormInput: React.FC<FormInputProps> = ({
   question,
   modal,
   onValidation,
+  formType,
 }) => {
+  // TODO - rewrite it
   const [inputIsValid, setIsValid] = useState(true);
+  // state for modal toggle
   const [toggleModal, showModal] = useState(false);
+
+  // if input has 3 or more letter/numbers set valid.
   function isValid(value: string) {
     const isValid = value.length >= 3;
     setIsValid(isValid);
@@ -25,6 +32,15 @@ const FormInput: React.FC<FormInputProps> = ({
       onValidation(isValid);
     }
   }
+  const chooseInput = (formType: string) => {
+    switch (formType) {
+      case 'input':
+        return <FormInputElement isValid={isValid} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <div className={`group mb-4 ${inputIsValid ? '' : 'invalid'}`}>
@@ -42,11 +58,12 @@ const FormInput: React.FC<FormInputProps> = ({
             </>
           )}
         </div>
-        <input
+        {chooseInput(formType)}
+        {/* <input
           className="w-full border-2 border-white bg-transparent p-2 focus:outline-none group-[.invalid]:border-red-500"
           onChange={(e) => isValid(e.target.value)}
           type="text"
-        />
+        /> */}
       </div>
     </>
   );

@@ -14,18 +14,22 @@ const data = [
           title: 'Czy posiadasz swój hosting www? (serwer)',
           desc: 'Hosting to inaczej miejsce w sieci, gdzie osadzona jest Twoja strona www, stale monitorowana, podłączona do internetu i domeny.',
         },
+        formType: 'input',
       },
       {
         question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt??',
+        formType: 'input',
       },
       {
         question:
           'Czemu ma służyć Twoja strona? (przedstawienie oferty, portfolio, blog, wizytówka firmy, zdobycie kontaktu etc.)',
         modal: { title: 'xd', desc: 'xd2' },
+        formType: 'input',
       },
       {
         question:
           'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
+        formType: 'input',
       },
     ],
   },
@@ -38,18 +42,22 @@ const data = [
           title: 'Czy posiadasz swój hosting www? (serwer)',
           desc: 'Hosting to inaczej miejsce w sieci, gdzie osadzona jest Twoja strona www, stale monitorowana, podłączona do internetu i domeny.',
         },
+        formType: 'input',
       },
       {
         question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt??',
+        formType: 'input',
       },
       {
         question:
           'Czemu ma służyć Twoja strona? (przedstawienie oferty, portfolio, blog, wizytówka firmy, zdobycie kontaktu etc.)',
         modal: { title: 'xd', desc: 'xd2' },
+        formType: 'input',
       },
       {
         question:
           'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
+        formType: 'input',
       },
     ],
   },
@@ -62,18 +70,22 @@ const data = [
           title: 'Czy posiadasz swój hosting www? (serwer)',
           desc: 'Hosting to inaczej miejsce w sieci, gdzie osadzona jest Twoja strona www, stale monitorowana, podłączona do internetu i domeny.',
         },
+        formType: 'input',
       },
       {
-        question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt??',
+        question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt?',
+        formType: 'input',
       },
       {
         question:
           'Czemu ma służyć Twoja strona? (przedstawienie oferty, portfolio, blog, wizytówka firmy, zdobycie kontaktu etc.)',
         modal: { title: 'xd', desc: 'xd2' },
+        formType: 'input',
       },
       {
         question:
           'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
+        formType: 'input',
       },
     ],
   },
@@ -86,18 +98,22 @@ const data = [
           title: 'Czy posiadasz swój hosting www? (serwer)',
           desc: 'Hosting to inaczej miejsce w sieci, gdzie osadzona jest Twoja strona www, stale monitorowana, podłączona do internetu i domeny.',
         },
+        formType: 'input',
       },
       {
         question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt??',
+        formType: 'input',
       },
       {
         question:
           'Czemu ma służyć Twoja strona? (przedstawienie oferty, portfolio, blog, wizytówka firmy, zdobycie kontaktu etc.)',
         modal: { title: 'xd', desc: 'xd2' },
+        formType: 'input',
       },
       {
         question:
           'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
+        formType: 'input',
       },
     ],
   },
@@ -110,33 +126,36 @@ const data = [
           title: 'Czy posiadasz swój hosting www? (serwer)',
           desc: 'Hosting to inaczej miejsce w sieci, gdzie osadzona jest Twoja strona www, stale monitorowana, podłączona do internetu i domeny.',
         },
+        formType: 'input',
       },
       {
         question: 'Jak nazywa się Twoja firma lub oferowana usługa/produkt??',
+        formType: 'input',
       },
       {
         question:
           'Czemu ma służyć Twoja strona? (przedstawienie oferty, portfolio, blog, wizytówka firmy, zdobycie kontaktu etc.)',
         modal: { title: 'xd', desc: 'xd2' },
+        formType: 'input',
       },
       {
         question:
           'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
+        formType: 'input',
       },
       {
         question:
           'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
+        formType: 'input',
       },
       {
         question:
           'Określ docelowych odbiorców, grupę wiekową i biznesową, np: branża prawnicza w przedziale wiekowym 20-30 lat.',
+        formType: 'input',
       },
     ],
   },
 ];
-
-// const activeIndex = 1;
-const currentIndex = 2;
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
