@@ -38,26 +38,28 @@ const Form: React.FC<{
 
   return (
     <>
-      <div className="relative py-4 text-xl">
-        <FormStepper stepCounter={data.length} activeIndex={activeIndex} />
-        {data.slice(0, activeIndex + 1).map((input, index) => (
-          <FormInput
-            key={index}
-            question={input.question}
-            modal={input.modal}
-            formType={input.formType}
-            checkboxAnswers={input.checkboxAnswers}
-            onValidation={(isValid) => handleInputValidation(index, isValid)}
-          />
-        ))}
-        {formsLength !== formIndex + 1 && activeIndex + 1 === data.length && (
-          <Button onClick={() => onValidation(true)}>Dalej</Button>
-        )}
+      {formIndex === index ? (
+        <div className="relative py-4 text-xl">
+          <FormStepper stepCounter={data.length} activeIndex={activeIndex} />
+          {data.slice(0, activeIndex + 1).map((input, index) => (
+            <FormInput
+              key={index}
+              question={input.question}
+              modal={input.modal}
+              formType={input.formType}
+              checkboxAnswers={input.checkboxAnswers}
+              onValidation={(isValid) => handleInputValidation(index, isValid)}
+            />
+          ))}
+          {formsLength !== formIndex + 1 && activeIndex + 1 === data.length && (
+            <Button onClick={() => onValidation(true)}>Dalej</Button>
+          )}
 
-        {formsLength === formIndex + 1 && activeIndex + 1 === data.length && (
-          <Button onClick={() => onValidation(true)}>Zatwierdź</Button>
-        )}
-      </div>
+          {formsLength === formIndex + 1 && activeIndex + 1 === data.length && (
+            <Button onClick={() => onValidation(true)}>Zatwierdź</Button>
+          )}
+        </div>
+      ) : null}
     </>
   );
 };
