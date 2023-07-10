@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import { useState, FC, ChangeEvent } from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
 
-const ColorPicker = () => {
+interface ColorPickerProps {
+  onColorChange: (color: string) => void;
+}
+
+const ColorPicker: FC<ColorPickerProps> = ({ onColorChange }) => {
   const [color, setColor] = useState('');
+
+  const handleColorChange = (newColor: string) => {
+    setColor(newColor);
+    onColorChange(newColor); // Wywołanie funkcji zwrotnej z wartością koloru
+  };
+
   return (
     <div className="flex flex-col items-center">
-      <HexColorPicker color={color} onChange={setColor} />
+      <HexColorPicker color={color} onChange={handleColorChange} />
       <HexColorInput
         className="mt-6 w-full border-2 border-white bg-transparent p-2 focus:outline-none group-[.invalid]:border-red-500"
         color={color}
         prefixed
-        onChange={setColor}
+        onChange={handleColorChange}
       />
       <div className="mt-8 flex justify-center">
         <div
@@ -21,4 +31,5 @@ const ColorPicker = () => {
     </div>
   );
 };
+
 export { ColorPicker };

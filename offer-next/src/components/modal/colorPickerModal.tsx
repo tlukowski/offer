@@ -1,9 +1,11 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { ColorPicker } from '../form/colorpicker';
 
 interface ColorPickerModalProps {
   title: string;
   show?: boolean;
+  elements: number;
+  onColorSelection: (colors: string[]) => void;
   onClick: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -11,7 +13,24 @@ export default function ColorPickerModal({
   title,
   show,
   onClick,
-}: ColorPickerModalProps) {
+  elements,
+  onColorSelection,
+}: ColorPickerModalProps): React.JSX.Element {
+  const [colors, setColors] = useState<string[]>([]);
+
+  const handleColorChange = (index: number, color: string) => {
+    const updatedColors = [...colors];
+    updatedColors[index] = color;
+    setColors(updatedColors);
+  };
+
+  const handleConfirmation = () => {
+    onColorSelection(colors); // Wywołanie funkcji zwrotnej z wybranymi kolorami
+    onClick((show) => !show);
+  };
+
+  const renderColorPickerItem = Array(elements).fill(null);
+
   return (
     <>
       {show && (
@@ -42,13 +61,16 @@ export default function ColorPickerModal({
               </button>
             </div>
             <div className="mt-8 flex items-center justify-between">
-              <ColorPicker></ColorPicker>
-              <ColorPicker></ColorPicker>
-              <ColorPicker></ColorPicker>
+              {renderColorPickerItem.map((_, index) => (
+                <ColorPicker
+                  key={index}
+                  onColorChange={(color) => handleColorChange(index, color)}
+                />
+              ))}
             </div>
             <div className="mt-8 flex justify-center">
               <button
-                onClick={() => onClick((show) => !show)}
+                onClick={handleConfirmation}
                 className="btn border border-white px-4 py-2 text-xl transition-colors duration-300 hover:bg-primaryPurple"
               >
                 Zatwierdź

@@ -53,7 +53,7 @@ const FormInput: React.FC<FormInputProps> = ({
       case 'colorPicker':
         return (
           <>
-            <ColorPickerButton />
+            <ColorPickerButton isValid={isValid} />
           </>
         );
       default:
