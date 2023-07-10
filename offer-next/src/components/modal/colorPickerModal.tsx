@@ -1,14 +1,18 @@
 import React, { Dispatch, SetStateAction } from 'react';
-interface ModalProps {
+import { ColorPicker } from '../form/colorpicker';
+
+interface ColorPickerModalProps {
   title: string;
-  desc: string;
   show?: boolean;
   onClick: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Modal({ title, desc, show, onClick }: ModalProps) {
+export default function ColorPickerModal({
+  title,
+  show,
+  onClick,
+}: ColorPickerModalProps) {
   return (
-    // Get information about modal, disable modal by click close modal, overlay.
     <>
       {show && (
         <div className="modal">
@@ -16,7 +20,7 @@ export default function Modal({ title, desc, show, onClick }: ModalProps) {
             className="overlay"
             onClick={() => onClick((show) => !show)}
           ></div>
-          <div className="modal-content">
+          <div className="modal-content !max-w-7xl">
             <div className="flex justify-between">
               <p className="text-xl text-yellow">{title}</p>
               <button
@@ -37,8 +41,18 @@ export default function Modal({ title, desc, show, onClick }: ModalProps) {
                 </svg>
               </button>
             </div>
-            <div className="mt-2 border-t border-gray-500 pt-2 text-sm">
-              <p>{desc}</p>
+            <div className="mt-8 flex items-center justify-between">
+              <ColorPicker></ColorPicker>
+              <ColorPicker></ColorPicker>
+              <ColorPicker></ColorPicker>
+            </div>
+            <div className="mt-8 flex justify-center">
+              <button
+                onClick={() => onClick((show) => !show)}
+                className="btn border border-white px-4 py-2 text-xl transition-colors duration-300 hover:bg-primaryPurple"
+              >
+                Zatwierdź
+              </button>
             </div>
           </div>
         </div>

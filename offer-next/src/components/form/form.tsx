@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 import FormInput from './formInput';
 import Button from '../button/button';
+import { FormStepper } from './formStepper';
+interface CheckboxAnswer {
+  answer: string;
+}
 
-type DataItem = {
+type FormProps = {
   question: string;
   modal?: {
     title: string;
     desc: string;
   };
   formType: string;
+  checkboxAnswers?: CheckboxAnswer[] | undefined;
 };
 
 const Form: React.FC<{
-  data: DataItem[];
+  data: FormProps[];
   index: number;
   formIndex: number;
   formsLength: number;
   onValidation: (isValid: boolean) => void;
 }> = ({ data, index, onValidation, formIndex, formsLength }) => {
-  console.log(data);
   const [activeIndex, setActiveIndex] = useState(0);
   const [inputs, setInputs] = useState(data.map(() => ({ isValid: false })));
   const handleInputValidation = (index: number, isValid: boolean) => {
@@ -31,28 +35,30 @@ const Form: React.FC<{
       return newInputs;
     });
   };
-  {
-  }
+
   return (
-    <div className={`${formIndex === index ? '' : 'hidden'} py-4 text-xl`}>
-      {data.slice(0, activeIndex + 1).map((input, index) => (
-        <FormInput
-          key={index}
-          question={input.question}
-          modal={input.modal}
-          formType={input.formType}
-          onValidation={(isValid) => handleInputValidation(index, isValid)}
-        />
-      ))}
-      {formsLength !== formIndex + 1 && activeIndex + 1 === data.length ? (
-        <Button onClick={() => onValidation(true)}>Dalej</Button>
-      ) : (
-        formsLength === formIndex + 1 &&
-        activeIndex + 1 === data.length && (
+    <>
+      <div className="relative py-4 text-xl">
+        <FormStepper stepCounter={data.length} activeIndex={activeIndex} />
+        {data.slice(0, activeIndex + 1).map((input, index) => (
+          <FormInput
+            key={index}
+            question={input.question}
+            modal={input.modal}
+            formType={input.formType}
+            checkboxAnswers={input.checkboxAnswers}
+            onValidation={(isValid) => handleInputValidation(index, isValid)}
+          />
+        ))}
+        {formsLength !== formIndex + 1 && activeIndex + 1 === data.length && (
+          <Button onClick={() => onValidation(true)}>Dalej</Button>
+        )}
+
+        {formsLength === formIndex + 1 && activeIndex + 1 === data.length && (
           <Button onClick={() => onValidation(true)}>Zatwierdź</Button>
-        )
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 
