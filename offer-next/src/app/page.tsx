@@ -63,7 +63,7 @@ const data = [
       {
         question:
           'Prześlij swoje logo jeśli posiadasz. Najlepiej w formacie otwartym, np. svg, cdr, pdf.',
-        formType: 'input',
+        formType: 'fileUpload',
       },
       {
         question: 'Linki do stron konkurencji, które Ci się podobają.',

@@ -12,8 +12,8 @@ const Button: React.FC<ModalButtonProps> = ({ onClick, children }) => {
     <div className="flex justify-end">
       <button
         onClick={() => onClick((isValid) => !isValid)}
-        className={`bg-secondaryPurple px-8 py-4 text-white transition-colors hover:bg-primaryPurple ${
-          isValid ? '' : 'invalid'
+        className={`transition-color px-8 py-4 text-white ${
+          isValid ? 'bg-primaryPurple' : 'bg-[#77777D]'
         }`}
       >
         {children}

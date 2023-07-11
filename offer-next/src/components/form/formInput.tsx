@@ -4,10 +4,10 @@ import ModalButton from '../modal/modalButton';
 import FormInputElement from './formInputElement';
 import { FormInputRadio } from './formRadio';
 import { FormTextarea } from './formTextarea';
-import { ColorPicker } from './colorpicker';
 import { ColorPickerButton } from '../button/ColorPickerButton';
 import { HexColorInput } from 'react-colorful';
-HexColorInput;
+import { FormFileUpload } from './formFileUpload';
+
 interface CheckboxAnswer {
   answer: string;
 }
@@ -18,12 +18,14 @@ interface FormInputProps {
     desc: string;
   };
   formType: string;
+  index: number;
   checkboxAnswers: CheckboxAnswer[] | undefined;
   onValidation: (isValid: boolean) => void;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
   question,
+  index,
   modal,
   onValidation,
   formType,
@@ -46,7 +48,11 @@ const FormInput: React.FC<FormInputProps> = ({
         return <FormInputElement isValid={isValid} />;
       case 'checkbox':
         return (
-          <FormInputRadio checkboxAnswers={checkboxAnswers} isValid={isValid} />
+          <FormInputRadio
+            index={index}
+            checkboxAnswers={checkboxAnswers}
+            isValid={isValid}
+          />
         );
       case 'textarea':
         return <FormTextarea isValid={isValid} />;
@@ -56,6 +62,8 @@ const FormInput: React.FC<FormInputProps> = ({
             <ColorPickerButton isValid={isValid} />
           </>
         );
+      case 'fileUpload':
+        return <FormFileUpload isValid={isValid} />;
       default:
         return null;
     }
@@ -63,7 +71,7 @@ const FormInput: React.FC<FormInputProps> = ({
 
   return (
     <>
-      <div className={`mb-6 ${inputIsValid ? '' : 'invalid'}`}>
+      <div className={`group mb-6 ${inputIsValid ? '' : 'invalid'}`}>
         <div className="mb-4 flex justify-between">
           <p className="mr-4 text-lg/6">{question}</p>
           {modal && (

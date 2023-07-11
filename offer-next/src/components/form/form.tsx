@@ -44,6 +44,7 @@ const Form: React.FC<{
           {data.slice(0, activeIndex + 1).map((input, index) => (
             <FormInput
               key={index}
+              index={index}
               question={input.question}
               modal={input.modal}
               formType={input.formType}
