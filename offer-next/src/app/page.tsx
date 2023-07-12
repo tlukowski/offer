@@ -160,14 +160,6 @@ const data = [
     subtitle: 'Dodatkowe uwagi',
     step: [
       {
-        question: 'Wybierz dodatkowe formy wsparcia.',
-        formType: 'input',
-      },
-      {
-        question: 'Jakich specjalistów potrzebujesz?',
-        formType: 'input',
-      },
-      {
         question:
           'Czy jest coś, o czym chciałbyś/chciałabyś nam powiedzieć, a nie znalazło się to w powyższym briefie?',
         formType: 'textarea',
