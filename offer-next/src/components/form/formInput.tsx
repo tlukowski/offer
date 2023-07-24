@@ -41,7 +41,6 @@ const FormInput: React.FC<FormInputProps> = ({
     const isValid = value.length >= 3;
     setIsValid(isValid);
     setInputValue(value);
-    console.log(inputValue);
     onValidation && onValidation(isValid, inputValue);
   }
   const chooseInput = (
