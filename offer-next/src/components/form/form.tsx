@@ -13,7 +13,7 @@ type FormProps = {
     title: string;
     desc: string;
   };
-  formType: string;
+  formType: 'input' | 'checkbox' | 'textarea' | 'colorPicker' | 'fileUpload';
   checkboxAnswers?: CheckboxAnswer[] | undefined;
 };
 

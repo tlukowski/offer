@@ -17,7 +17,7 @@ interface FormInputProps {
     title: string;
     desc: string;
   };
-  formType: string;
+  formType: 'input' | 'checkbox' | 'textarea' | 'colorPicker' | 'fileUpload';
   index: number;
   checkboxAnswers: CheckboxAnswer[] | undefined;
   onValidation: (isValid: boolean, value: string) => void;

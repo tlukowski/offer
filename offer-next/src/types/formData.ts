@@ -7,7 +7,7 @@ export default interface FormData {
       title: string;
       desc: string;
     };
-    formType: string;
+    formType: 'input' | 'checkbox' | 'textarea' | 'colorPicker' | 'fileUpload';
     // Add other properties as needed
   }[];
 }
