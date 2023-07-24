@@ -24,23 +24,22 @@ The application is built using the following technologies:
 
 Follow these steps to set up the Project Brief for Website Estimation locally:
 
-    Clone the repository:
+<h3>Clone the repository:</h3>
 
 
-git clone https://github.com/tlukowski/offer.git
-cd offer-next
+    git clone https://github.com/tlukowski/offer.git
+    cd offer-next
 
-    Install dependencies:
+<h3>Install dependencies::</h3>
 
+    npm install
 
-npm install
+<h3>Start the development server:</h3> 
 
-    Start the development server:
-
-npm run dev
+    npm run dev
 
 The application should now be running at http://localhost:3000.
-Usage
+<h4>Usage</h4>
 
     Access the application by navigating to http://localhost:3000 in your web browser.
 
@@ -62,4 +61,4 @@ Contact
 
 For any questions or inquiries, please contact:
 
-    Email: tomeklukowski@gmail.com
+Email: tomeklukowski@gmail.com
