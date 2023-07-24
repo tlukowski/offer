@@ -14,8 +14,8 @@ const SubmitButton: React.FC<ModalButtonProps> = ({ children, onClick }) => {
       <button
         type="submit"
         onClick={() => onClick((isValid) => !isValid)}
-        className={`transition-color px-8 py-4 text-white ${
-          isValid ? 'bg-primaryPurple' : 'bg-[#77777D]'
+        className={`transition-color px-8 py-4 text-white transition-colors hover:bg-purple-900 ${
+          isValid ? 'bg-primaryPurple' : 'bg-primaryPurple'
         }`}
       >
         {children}

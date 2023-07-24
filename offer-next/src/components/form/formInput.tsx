@@ -44,7 +44,9 @@ const FormInput: React.FC<FormInputProps> = ({
     console.log(inputValue);
     onValidation && onValidation(isValid, inputValue);
   }
-  const chooseInput = (formType: string) => {
+  const chooseInput = (
+    formType: 'input' | 'checkbox' | 'textarea' | 'colorPicker' | 'fileUpload'
+  ) => {
     switch (formType) {
       case 'input':
         return <FormInputElement isValid={isValid} />;
@@ -67,7 +69,6 @@ const FormInput: React.FC<FormInputProps> = ({
       case 'fileUpload':
         return <FormFileUpload isValid={isValid} />;
       default:
-        return null;
     }
   };
 

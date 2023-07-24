@@ -58,11 +58,6 @@ const data = [
         formType: 'colorPicker',
       },
       {
-        question:
-          'Prześlij swoje logo jeśli posiadasz. Najlepiej w formacie otwartym, np. svg, cdr, pdf.',
-        formType: 'fileUpload',
-      },
-      {
         question: 'Linki do stron konkurencji, które Ci się podobają.',
         formType: 'textarea',
       },
