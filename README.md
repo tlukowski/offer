@@ -26,20 +26,16 @@ Follow these steps to set up the Project Brief for Website Estimation locally:
 
     Clone the repository:
 
-bash
 
 git clone https://github.com/tlukowski/offer.git
 cd offer-next
 
     Install dependencies:
 
-bash
 
 npm install
 
     Start the development server:
-
-bash
 
 npm run dev
 
