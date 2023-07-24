@@ -18,7 +18,6 @@ The application is built using the following technologies:
     React: A JavaScript library for building user interfaces.
     Next.js: A framework for building server-rendered React applications.
     Tailwind CSS: A utility-first CSS framework for rapid UI development.
-    Express.js: A web application framework for Node.js used for server-side API handling.
 
 <h2>Installation and Setup</h2>
 
