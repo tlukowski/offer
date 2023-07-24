@@ -20,7 +20,7 @@ interface FormInputProps {
   formType: string;
   index: number;
   checkboxAnswers: CheckboxAnswer[] | undefined;
-  onValidation: (isValid: boolean) => void;
+  onValidation: (isValid: boolean, value: string) => void;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -35,12 +35,14 @@ const FormInput: React.FC<FormInputProps> = ({
   const [inputIsValid, setIsValid] = useState(true);
   // state for modal toggle
   const [toggleModal, showModal] = useState(false);
-
+  const [inputValue, setInputValue] = useState('');
   // if input has 3 or more letter/numbers set valid.
   function isValid(value: string) {
     const isValid = value.length >= 3;
     setIsValid(isValid);
-    onValidation && onValidation(isValid);
+    setInputValue(value);
+    console.log(inputValue);
+    onValidation && onValidation(isValid, inputValue);
   }
   const chooseInput = (formType: string) => {
     switch (formType) {

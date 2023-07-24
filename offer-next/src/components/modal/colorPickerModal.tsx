@@ -60,7 +60,7 @@ export default function ColorPickerModal({
                 </svg>
               </button>
             </div>
-            <div className="mt-8 flex items-center justify-between">
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-y-8 overflow-x-auto pt-4">
               {renderColorPickerItem.map((_, index) => (
                 <ColorPicker
                   key={index}

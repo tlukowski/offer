@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormInput from './formInput';
 import Button from '../button/button';
 import { FormStepper } from './formStepper';
+import SubmitButton from '../button/submitButton';
 interface CheckboxAnswer {
   answer: string;
 }
@@ -22,9 +23,12 @@ const Form: React.FC<{
   formIndex: number;
   formsLength: number;
   onValidation: (isValid: boolean) => void;
-}> = ({ data, index, onValidation, formIndex, formsLength }) => {
+  onSubmit: (isValid: boolean) => void;
+}> = ({ data, index, onValidation, formIndex, formsLength, onSubmit }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [inputs, setInputs] = useState(data.map(() => ({ isValid: false })));
+  const [inputs, setInputs] = useState(
+    data.map(() => ({ isValid: false, value: '' }))
+  );
   const handleInputValidation = (index: number, isValid: boolean) => {
     setInputs((prevInputs) => {
       const newInputs = [...prevInputs];
@@ -55,9 +59,10 @@ const Form: React.FC<{
           {formsLength !== formIndex + 1 && activeIndex + 1 === data.length && (
             <Button onClick={() => onValidation(true)}>Dalej</Button>
           )}
-
           {formsLength === formIndex + 1 && activeIndex + 1 === data.length && (
-            <Button onClick={() => onValidation(true)}>Zatwierdź</Button>
+            <SubmitButton onClick={() => onSubmit(true)}>
+              Zatwierdź
+            </SubmitButton>
           )}
         </div>
       ) : null}
