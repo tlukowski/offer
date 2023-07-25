@@ -71,7 +71,7 @@ export default function Home() {
             </div>
             <div
               className={` ${
-                loading ? '' : ' !opacity-100 lg:grid '
+                loading ? '' : '!block !opacity-100 lg:!grid '
               }transition-opacity border-primary mt-6 hidden opacity-0 duration-300  lg:grid-cols-3`}
             >
               <div className="steps relative flex w-full snap-x gap-12 overflow-x-hidden py-14 pb-14 pt-9 lg:block">
